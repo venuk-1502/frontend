@@ -1,6 +1,6 @@
 @Library('roboshop') _
 
-nodejs(
+nginx(
   COMPONENT : 'frontend',
   LABEL     : 'WORKSTATION'
 )

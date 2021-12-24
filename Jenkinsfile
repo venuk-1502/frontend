@@ -5,7 +5,12 @@
 //    LABEL                     : 'WORKSTATION'
 //)
 
-nginxImmutable(
+//nginxImmutable(
+//    COMPONENT                 : 'frontend',
+//    LABEL                     : 'WORKSTATION'
+//)
+
+docker(
     COMPONENT                 : 'frontend',
     LABEL                     : 'WORKSTATION'
 )

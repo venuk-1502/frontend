@@ -1,25 +1,25 @@
+appName: frontend
 replicaCount: 1
 image:
   repository: 378784712135.dkr.ecr.us-east-1.amazonaws.com/frontend
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 serviceAccount:
   create: true
   annotations: {}
-  name: "frontend"
 
 service:
   type: ClusterIP
   port: 80
-  containerPort: 8080
+  containerPort: 80
 
 resources:
-   limits:
-     cpu: 100m
-     memory: 256Mi
-   requests:
-     cpu: 100m
-     memory: 256Mi
+  limits:
+    cpu: 250m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 512Mi
 
 env:
   name: dev
@@ -47,3 +47,10 @@ configmap:
           stub_status on;
           access_log off;
       }
+
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
